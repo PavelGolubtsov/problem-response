@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController');
 
 Auth::routes();
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/', 'AdminController');
+    Route::resource('/categories', 'CategoryController');
+    Route::get('/restore', 'CategoryController@restore')->name('categories.restore');
+    Route::post('/restore/{category}', 'CategoryController@unDelete')->name('categories.unDelete');
+});
