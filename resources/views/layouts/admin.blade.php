@@ -20,30 +20,23 @@
     @include('components.styles')
 
     <style>
-
     </style>
 </head>
 <body>
     <div id="app">
-        @section('header')
-            @include('components.header')
-        @show
-
-        <main class="class=container mt-4">
+        <div class="class=container">
             <div class="row">
-                <div class="col">
-
+                <div class="col" style="background-color: gainsboro;">
+                    @include('components.sidebar')
                 </div>
-                <div class="col-8">
-                    @yield('content')
-                </div>
-                <div class="col">
-
+                <div class="col-10">
+                    @include('components.a_header')
+                    <main class="class=container mt-2">
+                        @yield('content')
+                    </main>
                 </div>
             </div>
-        </main>
-
-        @include('components.footer')
+        </div>
     </div>
 </body>
 </html>
